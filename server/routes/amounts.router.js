@@ -1,11 +1,11 @@
 const express = require('express');
-const pool = require('../modules/pool');
 const router = express.Router();
+const { calculate } = require('../modules/calculate');
 
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/down', (req, res) => {
     
 });
 
