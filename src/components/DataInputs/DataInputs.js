@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {TextField} from "@material-ui/core";
+import { connect } from "react-redux";
+import { TextField, Button } from "@material-ui/core";
 
 class DataInputs extends Component {
   state = {
@@ -10,7 +11,7 @@ class DataInputs extends Component {
   };
 
   handleChange = (e, keyname) => {
-      this.setState({...state, [keyname]: e.target.value})
+      this.setState({...this.state, [keyname]: e.target.value})
   }
 
   handleSubmit = () => {
@@ -26,33 +27,34 @@ class DataInputs extends Component {
           type="number"
           variant="outlined"
           label="Home Cost"
-          onChange={() => this.handleChange(event, "homeCost")}
+          onChange={(event) => this.handleChange(event, "homeCost")}
           placeholder="280000"
         />
         <TextField
           type="number"
           variant="outlined"
           label="Down Payment"
-          onChange={() => this.handleChange(event, "downPercent")}
+          onChange={(event) => this.handleChange(event, "downPercent")}
           placeholder="EG 0.20"
         />
         <TextField
           type="number"
           variant="outlined"
           label="Monthly Savings"
-          onChange={() => this.handleChange(event, "monthlySavings")}
+          onChange={(event) => this.handleChange(event, "monthlySavings")}
           placeholder="EG 2000"
         />
         <TextField
           type="number"
           variant="outlined"
           label="Starting Amount"
-          onChange={() => this.handleChange(event, "startingAmount")}
+          onChange={(event) => this.handleChange(event, "startingAmount")}
           placeholder="EG 10000"
         />
+        <Button onClick={this.handleSubmit}>Calculate!</Button>
       </>
     );
   }
 }
 
-export default DataInputs;
+export default connect()(DataInputs);

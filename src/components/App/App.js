@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
+import DataInputs from '../DataInputs/DataInputs';
 
 class App extends Component {
-  componentDidMount () {
-    
-  }
 
   render() {
     return (
-      <></>
+      <>
+        <DataInputs/>
+      </>
   )}
 }
 
