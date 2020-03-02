@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 
@@ -15,12 +15,20 @@ function valuetext(value) {
   return `${value}`;
 }
 
+
+
 export default function DiscreteSlider(props) {
   const classes = useStyles();
+
   const marks = [
     { value: props.sliderValues.min, label: `${props.sliderValues.min}`},
     { value: props.sliderValues.max, label: `${props.sliderValues.max}`}
   ];
+
+  const handleChange = (name, value) => {
+    console.log(name, value, props.value);
+    props.setValue({...props.value, [name]: value})
+  }
 
   return (
     <div className={classes.root}>
@@ -33,6 +41,7 @@ export default function DiscreteSlider(props) {
         step={props.sliderValues.stepSize}
         min={props.sliderValues.min}
         max={props.sliderValues.max}
+        onChange={(e,val) => handleChange(props.sliderValues.name, val)}
       />
     </div>
   );

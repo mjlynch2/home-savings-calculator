@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import DiscreteSlider from "../MaterialComponets/Slider";
 
 const values = {
-  min: 0,
-  default: 2000,
-  max: 5000,
-  stepSize: 500
+    name: 'monthlySavings',
+    min: 500,
+    default: 2000,
+    max: 7500,
+    stepSize: 500
 };
 
-function MonthlySavings() {
+function MonthlySavings(props) {
   return (
     <>
-      <DiscreteSlider sliderValues={values} />
-      {values.min} | {values.default}
+      <DiscreteSlider sliderValues={values} setValue={props.setValue} value={props.value}/>
     </>
   );
 }
