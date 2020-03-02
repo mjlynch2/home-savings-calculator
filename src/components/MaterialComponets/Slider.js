@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 
 const useStyles = makeStyles(theme => ({
@@ -13,27 +12,27 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function valuetext(value) {
-  return `${value}°C`;
-}
-
-function valueLabelFormat(value) {
-  return marks.findIndex(mark => mark.value === value) + 1;
+  return `${value}`;
 }
 
 export default function DiscreteSlider(props) {
   const classes = useStyles();
+  const marks = [
+    { value: props.sliderValues.min, label: `${props.sliderValues.min}`},
+    { value: props.sliderValues.max, label: `${props.sliderValues.max}`}
+  ];
 
   return (
     <div className={classes.root}>
       <Slider
-        defaultValue={props.value}
+        defaultValue={props.sliderValues.default}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"
-        step={props.stepSize}
-        marks
-        min={props.min}
-        max={props.max}
+        marks={marks}
+        step={props.sliderValues.stepSize}
+        min={props.sliderValues.min}
+        max={props.sliderValues.max}
       />
     </div>
   );

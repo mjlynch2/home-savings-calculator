@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import DataInputs from '../DataInputs/DataInputs';
+import DownPayment from '../DownPayment/DownPayment';
+import MonthlySavings from '../MonthlySavings/MonthlySavings';
 
 class App extends Component {
 
@@ -7,6 +9,8 @@ class App extends Component {
     return (
       <>
         <DataInputs/>
+        <DownPayment/>
+        <MonthlySavings/>
       </>
   )}
 }
